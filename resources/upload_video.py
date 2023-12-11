@@ -6,7 +6,6 @@ from datetime import datetime
 import os
 
 from libs.predict_video import predict_video
-# from libs.predict_image import load_image, request_model
 
 class UploadVideo(Resource):
     parse = reqparse.RequestParser()

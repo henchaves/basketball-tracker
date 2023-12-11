@@ -9,7 +9,7 @@ def create_app():
     app = Flask(__name__)
     api = Api(app)
 
-    api.add_resource(UploadVideo, "/predict")
+    api.add_resource(UploadVideo, "/")
     
     CORS(app)
     return app

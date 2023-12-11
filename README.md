@@ -35,8 +35,8 @@ python -m pip install -r requirements.txt
 python -m flask run --host=0.0.0.0 --port=5180
 ```
 
-4. Open the app in your browser at http://localhost:5180/predict
+1. Open the app in your browser at http://localhost:5180
 
-5. Choose a video file and click the "Submit" button
+2. Choose a video file and click the "Submit" button
 
-6. Wait for the prediction to complete until you get a new video
+3. Wait for the prediction to complete until you get a new video
