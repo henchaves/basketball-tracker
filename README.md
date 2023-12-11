@@ -14,6 +14,10 @@ MacOS:
 brew install ffmpeg
 ```
 
+Windows:
+
+https://www.ffmpeg.org/download.html
+
 <hr>
 
 1. Create a Python virtual environment
