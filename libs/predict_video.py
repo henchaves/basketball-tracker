@@ -98,12 +98,14 @@ def predict_video(video_path):
 
 
     all_shoot_made.append(shoot_made)
-    print(shoot_made)
-    print(len(shoot_made))
+    # print(shoot_made)
+    # print(len(shoot_made))
 
     time_str = datetime.now().strftime("%Y%m%d%H%M%S")
-    filename = f"result_{time_str}.mp4"
-    filename_output = f"static/{filename}"
+    filename = f"result_{time_str}_original.mp4"
+    filename_2 = f"result_{time_str}_converted.mp4"
+    filename_output = f"./static/{filename}"
+    filename_output_2 = f"./static/{filename_2}"
 
     def process_frame(frame: np.ndarray, _) -> np.ndarray:
         actual_frame[0] += 1
@@ -224,14 +226,20 @@ def predict_video(video_path):
                 coords.pop(0)
 
         return frame
+    
+    print(all_shoot_made)
 
     sv.process_video(source_path=video_path, target_path=filename_output,
                      callback=process_frame)
     
-    clip = VideoFileClip(filename_output)
-    clip.write_videofile(filename_output, codec="libx264", audio_codec="aac")
-
-    print(all_shoot_made)
+    # Convert to h264 and remove the original file
+    try:
+        clip = VideoFileClip(filename_output)
+        clip.write_videofile(filename_output_2, codec="libx264", audio_codec="aac")
+        os.remove(filename_output)
+        return filename_2
+    except:
+        pass
 
     return filename
 
