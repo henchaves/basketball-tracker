@@ -6,6 +6,8 @@ import cv2
 import os
 import math
 from datetime import datetime
+from moviepy.editor import VideoFileClip
+
 
 VIDEO_SIZE = 32 * 30
 TRAJECTORY = "on"
@@ -225,6 +227,9 @@ def predict_video(video_path):
 
     sv.process_video(source_path=video_path, target_path=filename_output,
                      callback=process_frame)
+    
+    clip = VideoFileClip(filename_output)
+    clip.write_videofile(filename_output, codec="libx264", audio_codec="aac")
 
     print(all_shoot_made)
 
