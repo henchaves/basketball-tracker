@@ -1,0 +1,9 @@
+flask
+flask-restful
+flask-cors
+requests
+ultralytics
+supervision
+dill
+lapx
+opencv-contrib-python
